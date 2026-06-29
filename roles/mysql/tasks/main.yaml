@@ -1,6 +1,13 @@
-  - name: Install redis
+  - name: Install mysql
     command: dnf install mysql-server -y
-  
+
+  - name: install boto3 botocore
+    pip:
+     name:
+     - boto3
+     - botocore
+     executable: pip3.9
+
   - name: start the service
     service:
      name: mysqld
