@@ -1,4 +1,5 @@
-MYSQL_ROOT_PASSWORD: RoboShop@1
+# MYSQL_ROOT_PASSWORD: RoboShop@1
+
 # below lookup statement will fetch value from aws secrets
 # root_password: "{{ lookup('amazon.aws.aws_secret', 'roboshop/mysql_root_password', region='us-east-1') | from_json  }}"
-# mysql_root_password = "{{ lookup('amazon.aws.aws_ssm', '/roboshop/{{ env }}/mysql_root_password', decrypt=False, region='us-east-1' ) }}"
+mysql_root_password : "{{ lookup('amazon.aws.aws_ssm', '/roboshop/{{ env }}/mysql_root_password', decrypt=False, region='us-east-1' ) }}"
