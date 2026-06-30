@@ -1,5 +1,16 @@
-  - name: Install mysql
-    command: dnf install mysql-server -y
+# - name: get the password from AWS secrets manager
+#   debug:
+#     msg: "{{ lookup('amazon.aws.aws_secret', 'roboshop/mysql_root_password', region='us-east-1') | from_json  }}"
+
+# - name: print root password
+#   debug:
+#     msg: "{{ root_password.mysql_root_password }}"
+  - name: install mysql server
+    package:
+     name: mysql-server
+     state: present
+  # - name: Install mysql
+  #   command: dnf install mysql-server -y
 
   - name: install boto3 botocore
     pip:
@@ -13,7 +24,7 @@
      name: mysqld
      state: started
      enabled: true
-  
+
   - name: setup root password
     command: mysql_secure_installation --set-root-pass "{{ mysql_root_password }}"
     
