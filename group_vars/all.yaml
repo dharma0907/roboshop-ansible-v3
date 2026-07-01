@@ -1,4 +1,4 @@
-MONGO_HOST: mongo-{{ env }}.dcinema.online
+MONGO_HOST: mongodb-{{ env }}.dcinema.online
 Redis_Host: redis-{{ env }}.dcinema.online
 Mysql_Host: mysql-{{ env }}.dcinema.online
 Rabbitmq_Host: rabbitmq-{{ env }}.dcinema.online
